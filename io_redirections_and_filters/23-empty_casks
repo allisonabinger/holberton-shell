@@ -1,2 +1,2 @@
 #!/bin/bashfind 
-find . -empty -ra -1  
+find ./ -empty -ra -1  
