@@ -8,10 +8,10 @@ do
 		echo "Best School"
 	elif [ $x = 4 ]
 		then
-			echo "Bad luck"
+			echo "bad luck"
 	elif [ $x = 8 ]
 		then
-			echo "Good luck"
+			echo "good luck"
 	else
 			echo "Best School"
 fi
