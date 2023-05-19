@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#Best School/Bad luck/Goodluck
+x=1
+while [ $x -le 10 ]
+do
+	if [ $x -le 3 ]
+	then
+		echo "Best School"
+	elif [ $x = 4 ]
+		then
+			echo "Bad luck"
+	elif [ $x = 8 ]
+		then
+			echo "Good luck"
+	else
+			echo "Best School"
+fi
+	x=$((x+1))
+done
