@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#This is a script to list Best School 10 times
 for number in  {1..10}
 do
 	echo "Best School"
