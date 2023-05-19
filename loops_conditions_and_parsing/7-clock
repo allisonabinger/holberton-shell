@@ -17,5 +17,4 @@ do
 		min=0
 		hour=$((hour+1))
 	fi
-sleep 1
 done
