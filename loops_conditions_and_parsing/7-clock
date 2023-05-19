@@ -8,7 +8,7 @@ do
 	then
 		echo "Hour $hour"
 		min=$((min+1))
-	elif [ $min -lt 60  ]
+	elif [ $min -lt 60 ]
 	then
 		echo "$min"
 		min=$((min+1))
