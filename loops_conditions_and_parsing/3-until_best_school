@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#This is an until loop to display Best School
+x=1
+until x=11
+do 
+	echo "Best School"
+	x=$(( x + 1 ))
+	sleep 1
+done
