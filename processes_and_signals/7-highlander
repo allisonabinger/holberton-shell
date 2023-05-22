@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 #kills 4 indefinitely, sleep 2 inbetween each iteration, and says i am invincible when receiving a sigterm signal.
-a=1
-while [ $a = 1 ]
-do
+trap "echo 'I am invincible!!!'" SIGTERM
+while true; do
 	echo "To infinity and beyond"
 	sleep 2
 done	
-trap "echo "I am invincible!!!"" SIGTERM
