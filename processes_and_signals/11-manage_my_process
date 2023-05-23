@@ -1,2 +1,22 @@
 #!/usr/bin/env bash
 #idk yet
+if ./11-manage_my_process true
+then
+	echo "manage_my_process started"
+	./etc/init.d/manage_my_process start &
+	cat "$$" > /var/run/my_process.pid
+elif ./11-manage_my_process stop
+then 
+	echo "manage_my_process stopped"
+	./etc.init.d/manage_my_process stop &
+	rm /var/run/my_process.pid
+elif
+	./11-manage_my_process restart
+then
+	echo "manage_my_process restarted"
+	./etc/init.d/manage_my_process stop &
+	rm /var/run/my_process.pid
+	cat "$$" > /var/run/my_process.pid
+else
+	echo "Usage: manage_my_process {start|stop|restart}"
+fi
