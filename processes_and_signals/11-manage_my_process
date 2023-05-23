@@ -4,20 +4,20 @@ PIDFILE="/var/run/my_process.pid"
 if ./11-manage_my_process true
 then
 	echo "manage_my_process started"
-	./etc/init.d/manage_my_process start &
+	./manage_my_process start &
 	cat "$!" > $PIDFILE
 elif ./11-manage_my_process stop
 then 
 	echo "manage_my_process stopped"
-	./etc.init.d/manage_my_process stop &
+	./manage_my_process stop &
 	rm -r $PIDFILE
 elif
 	./11-manage_my_process restart
 then
 	echo "manage_my_process restarted"
-	./etc/init.d/manage_my_process stop &
+	./manage_my_process stop &
 	rm -r $PIDFILE
-	./etc/init.d/manage_my_process start &
+	./manage_my_process start &
 	cat "$!" > $PIDFILE
 else
 	echo "Usage: manage_my_process {start|stop|restart}"
