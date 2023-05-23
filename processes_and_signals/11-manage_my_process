@@ -1,24 +1,23 @@
 #!/usr/bin/env bash
-#idk yet
-PIDFILE="/var/run/my_process.pid"
-if ./11-manage_my_process true
-then
-	echo "manage_my_process started"
-	./manage_my_process start &
-	cat "$!" > $PIDFILE
-elif ./11-manage_my_process stop
-then 
-	echo "manage_my_process stopped"
-	./manage_my_process stop &
-	rm -r $PIDFILE
-elif
-	./11-manage_my_process restart
-then
-	echo "manage_my_process restarted"
-	./manage_my_process stop &
-	rm -r $PIDFILE
-	./manage_my_process start &
-	cat "$!" > $PIDFILE
-else
-	echo "Usage: manage_my_process {start|stop|restart}"
-fi
+#Managing Processes
+case $1 in
+	start)
+		./manage_my_process &
+		echo "$!" > /var/run/my_process.pid &
+		echo "manage_my_process started"
+		;;
+	stop)
+		pkill -f /manage_my_process &
+		rm /var/run/my_process.pid &
+		echo "manage_my_process stopped"
+		;;
+	restart)
+		echo "manage_my_process restarted" &&
+		pkill -f /manage_my_process &&
+		rm /var/run/my_process.pid &&
+		./manage_my_process &&
+		echo "$!" > /var/run/my_process.pid &&
+		;;
+	*)
+		echo $"Usage: manage_my_process {start|stop|restart}"
+esac
