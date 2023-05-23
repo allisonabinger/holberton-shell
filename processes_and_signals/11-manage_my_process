@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #idk yet
 PIDFILE="/var/run/my_process.pid"
-if ./11-manage_my_process start
+if ./11-manage_my_process true
 then
 	echo "manage_my_process started"
 	./etc/init.d/manage_my_process start &
@@ -16,7 +16,7 @@ elif
 then
 	echo "manage_my_process restarted"
 	./etc/init.d/manage_my_process stop &
-	rm -r /var/run/my_process.pid
+	rm -r $PIDFILE
 	./etc/init.d/manage_my_process start &
 	cat "$!" > $PIDFILE
 else
